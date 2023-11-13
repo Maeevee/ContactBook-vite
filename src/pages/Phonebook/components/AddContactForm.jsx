@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { usePostContactMutation, useGetContactsQuery } from '../../../redux/contacts/contactsOperations';
 
 
@@ -34,7 +34,7 @@ const AddContactForm = () => {
       await postContacts(contactToAdd)
     } catch (error) {
       console.log(error);
-    }
+    };
 
     resetForm()
   }

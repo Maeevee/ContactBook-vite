@@ -1,6 +1,5 @@
 import { useGetContactsQuery, useDeleteContactMutation } from '../../../redux/contacts/contactsOperations';
 import { ChangeBtn } from '../../../components/ChangeBtn/ChangeBtn';
-import PropTypes from 'prop-types';
 
 const ContactList = ({search}) => {
 
@@ -24,9 +23,5 @@ const ContactList = ({search}) => {
     )
    
 }
-
-ContactList.propTypes = {
-    search: PropTypes.string.isRequired,
-  };
 
 export default ContactList

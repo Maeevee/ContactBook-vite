@@ -1,46 +1,32 @@
-import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState } from "react"
 import { useChangeContactMutation } from "../../redux/contacts/contactsOperations";
 
 export const ChangeContactForm = ({ name, id, number }) => {
-  const [changeContact] = useChangeContactMutation();
 
-  const [contactName, setContactName] = useState(name);
-  const [contactNumber, setContactNumber] = useState(number);
+    const [changeContact] = useChangeContactMutation();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    name === "contactName" ? setContactName(value) : setContactNumber(value);
-  };
+    const [contactName, setContactName] = useState(name);
+    const [contactNumber, setContactNumber] = useState(number);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    changeContact({ id, name: contactName, number: contactNumber });
-  };
+    const handleInputChange = (event) => {
+        const {name, value} = event.target
+        name === 'contactName'?setContactName(value) : setContactNumber(value)
+    }
 
-  console.log(name, number);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        changeContact({id, name: contactName, number: contactNumber});
+    }
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleInputChange}
-          value={contactName}
-          name="contactName"
-        />
-        <input
-          onChange={handleInputChange}
-          value={contactNumber}
-          name="contactName"
-        />
-        <button type="submit">Save</button>
-      </form>
-    </>
-  );
-};
+    console.log(name, number);
 
-ChangeContactForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
+    return (
+        <>
+            <form onSubmit={handleSubmit}> 
+                <input onChange={handleInputChange} value={contactName} name='contactName'/>
+                <input onChange={handleInputChange} value={contactNumber} number='contactNumber'/>
+                <button type="submit">Save</button>
+            </form>
+        </>
+    )
+}
